@@ -8,6 +8,7 @@
      id 'application'
  }
 repositories {
+    mavenCentral()
     maven{ url "https://frcmaven.wpi.edu/release"}
 }
 application {
@@ -15,4 +16,5 @@ application {
 }
 dependencies {
     implementation "edu.wpi.first.wpiutil:wpiutil-java:2022.4.1"
+    implementation "org.apache.commons:commons-csv:1.10.0"
 }
