@@ -73,12 +73,16 @@ public class App {
 
     private void write(DataLogRecord t, CharSequence ... detail) {
         Instant ofEpochMilli = Instant.ofEpochMilli(t.getTimestamp());
-        try {
-            outstream.append(
-            DateTimeFormatter
+        String utcDateTime = DateTimeFormatter
             .ISO_LOCAL_TIME
             .withZone(ZoneId.of("UTC"))
-            .format(ofEpochMilli));
+            .format(ofEpochMilli);  
+        write(utcDateTime, detail);    
+    }
+
+    private void write(String description, CharSequence ... detail) {    
+        try {
+            outstream.append( description );
             outstream.append(",");
             outstream.append(Arrays.stream(detail).collect(Collectors.joining(",")));
             outstream.append("\n");
