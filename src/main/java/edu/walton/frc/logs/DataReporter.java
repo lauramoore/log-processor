@@ -36,7 +36,7 @@ class DataReporter implements Consumer<DataLogRecord> {
                 StartRecordData startData = t.getStartData();
                 writeStartRecord(t, startData);
             } else {
-              writeData(t);
+              //writeData(t);
             }
         }
 

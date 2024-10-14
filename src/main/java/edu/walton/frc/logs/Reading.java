@@ -18,4 +18,9 @@ public class Reading<T> {
     public T getValue(){
         return m_value;
     }
+    @Override
+    public String toString() {
+        return "Reading [m_timestamp=" + m_timestamp + ", m_value=" + m_value + "]";
+    }
+
 }

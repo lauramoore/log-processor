@@ -1,4 +1,5 @@
 package edu.walton.frc.logs;
+import java.io.File;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
@@ -11,7 +12,21 @@ public class App {
 
     public static void main(String[] args) {
         String logfile = args[0];
-        try {
+
+        if(logfile.contains(".dslog")) {
+            logfile =  renameFile(logfile);   
+        }    
+        doRobotLogs(logfile);
+
+    }
+    static String renameFile(String logfile) {
+        File orig = new File(logfile);
+        File renamed = new File(logfile.replace(".dslog", ".wpilog"));
+        orig.renameTo(renamed);
+        return renamed.toString();
+    }
+    static void doRobotLogs(String logfile) {
+        try{
             DataLogReader  reader = new DataLogReader(logfile);
             String filestate = (reader.isValid()) ? "valid" : "invalid";
             System.out.println(String.format("File is %s", filestate));
@@ -32,7 +47,6 @@ public class App {
             e.printStackTrace();
             System.exit(1);
         }
-
     }
 }
 

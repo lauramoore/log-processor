@@ -1,11 +1,8 @@
 package edu.walton.frc.logs;
 
-import java.time.Instant;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.TreeMap;
-
 import edu.wpi.first.util.datalog.DataLogRecord;
 
 public class DoubleCollector implements Collector<Double>{
@@ -31,8 +28,6 @@ public class DoubleCollector implements Collector<Double>{
     @Override
     public Collection<Reading<Double>> get() {
        return values;
-    }
-
-    
+    }    
     
 }

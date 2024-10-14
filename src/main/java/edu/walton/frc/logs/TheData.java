@@ -34,9 +34,10 @@ public class TheData implements Consumer<DataLogRecord> {
     @Override
     public String toString() {
         return String.format(
-            "Data: %s  Total Records %d",
+            "Data: %s  Total Records %d  ", //values:\n %s",
             m_start.name, 
             m_collector.size()
+            //m_collector
         );            
     }
 
